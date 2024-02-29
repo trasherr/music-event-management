@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,22 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.services {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.services.visible {
+  opacity: 1;
+}
+
+/* Add additional styles for service cards as needed */
+.service-card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
