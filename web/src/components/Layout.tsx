@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import NewsLetterComponent from '../components/NewsLetterComponent.tsx';
 import { Outlet, Link } from "react-router-dom";
 
 const Layout: React.FC = () => {
+
+
+  const popupRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+
+  const handleClick = () => {
+      setIsOpen(!isOpen);
+    };
+  useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (isOpen && popupRef.current && !popupRef.current.contains(event.target)) {
+          setIsOpen(false);
+        }
+      };
+  
+      document.addEventListener('click', handleClickOutside);
+  
+      return () => {
+        document.removeEventListener('click', handleClickOutside);
+      };
+    }, [isOpen]);
+
+
+
   return (
     <>
+      
       <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">Music Event Management</Link>
@@ -23,6 +50,14 @@ const Layout: React.FC = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/about">About</Link>
+              </li>
+              <li className="nav-item">
+              <button className='nav-link' onClick={handleClick}>Newsletter</button>
+                {isOpen && (
+                    <NewsLetterComponent onClose={handleClick}>
+                    
+                    </NewsLetterComponent>
+                )}
               </li>
             </ul>
           </div>

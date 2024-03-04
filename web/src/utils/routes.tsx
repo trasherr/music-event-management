@@ -12,7 +12,8 @@ export const reactRoutes = {
 
 export const apiRoutes = {
     login: '/auth/login',
-    eventGet: '/event',
+    eventGet: (eventId: number | string) => '/home/event/'+eventId,
+    eventsGet: '/home/events',
     eventPost: '/admin/event',
     eventImgPost: (eventId: number | string) => '/admin/event/images/FILES/'+eventId,
     eventDelete: '/admin/event',

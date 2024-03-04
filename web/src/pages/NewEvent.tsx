@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-
 import Datetime from 'react-datetime';
 import "react-datetime/css/react-datetime.css";
-import { Moment } from 'moment';
-import moment from 'moment';
+import moment, { Moment } from 'moment';
 import axios from 'axios'; // Import Axios
 import { API_ENDPOINT } from '../utils/constants.tsx';
 import { apiRoutes } from '../utils/routes.tsx';
@@ -32,7 +30,7 @@ const NewEvent: React.FC = () => {
 
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
   
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
   
       const validationErrors: { [key: string]: string } = {};

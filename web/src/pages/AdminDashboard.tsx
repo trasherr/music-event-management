@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
+import EventList, { IEvent } from '../components/EventList.tsx';
+import axios from 'axios';
+import { API_ENDPOINT } from '../utils/constants.tsx';
+import { apiRoutes } from '../utils/routes.tsx';
+
+
+
 
 const AdminDashboard: React.FC = () => {
+    const [events, setEvents] = useState<IEvent[]>([]);
+    
+    
+    useEffect(() => {
+        axios.get<IEvent[]>(API_ENDPOINT + apiRoutes.eventsGet).then((response) => {
+            setEvents(response.data);
+            console.log(response.data);
+            
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    },[]);
     return (
         <div>
             <div className="container mt-5 mb-5">
+           
                 <div className="row justify-content-center ">
    
                     <div className="col-lg-8 border border-info me-1 rounded mt-0">
@@ -13,50 +34,7 @@ const AdminDashboard: React.FC = () => {
 
                         <div className="pr-4">
                             <h1 className="border-b-4 border-danger w-52">Events</h1>
-                            <div className='row'>
-                                <div className='col-lg-5'>  <img  className='float-start img-fluid rounded'  src="https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495_640.jpg" alt=""  />  </div>
-                                <div className='col-lg-7'>
-                                    <p>Welcome to MEM, your premier destination for music event management services! At MEM, we are passionate about curating unforgettable .</p>
-                                    <h4 className="mt-6 border-b-4 border-danger w-52">Why Choose Us?</h4>
-                                    <ul className="list-disc list-inside mt-4">
-                                        <li>Professionalism: Our team is committed to professionalism and excellence in everything we do, ensuring a smooth .</li>
-                                    </ul>
-                                    </div>
-                            </div>
-
-                            <div className='row'>
-                                <div className='col-lg-5'>  <img  className='float-start img-fluid rounded'  src="https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495_640.jpg" alt=""  />  </div>
-                                <div className='col-lg-7'>
-                                    <p>Welcome to MEM, your premier destination for music event management services! At MEM, we are passionate about curating unforgettable .</p>
-                                    <h4 className="mt-6 border-b-4 border-danger w-52">Why Choose Us?</h4>
-                                    <ul className="list-disc list-inside mt-4">
-                                        <li>Professionalism: Our team is committed to professionalism and excellence in everything we do, ensuring a smooth .</li>
-                                    </ul>
-                                    </div>
-                            </div>
-
-                            <div className='row'>
-                                <div className='col-lg-5'>  <img  className='float-start img-fluid rounded'  src="https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495_640.jpg" alt=""  />  </div>
-                                <div className='col-lg-7'>
-                                    <p>Welcome to MEM, your premier destination for music event management services! At MEM, we are passionate about curating unforgettable .</p>
-                                    <h4 className="mt-6 border-b-4 border-danger w-52">Why Choose Us?</h4>
-                                    <ul className="list-disc list-inside mt-4">
-                                        <li>Professionalism: Our team is committed to professionalism and excellence in everything we do, ensuring a smooth .</li>
-                                    </ul>
-                                    {/* <p className="py-6">At MEM, we are dedicated to exceeding expectations and creating moments that ins!</p> */}
-                                    </div>
-                            </div>
-
-                            <div className='row'>
-                                <div className='col-lg-5'>  <img  className='float-start img-fluid rounded'  src="https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495_640.jpg" alt=""  />  </div>
-                                <div className='col-lg-7'>
-                                    <p>Welcome to MEM, your premier destination for music event management services! At MEM, we are passionate about curating unforgettable .</p>
-                                    <h4 className="mt-6 border-b-4 border-danger w-52">Why Choose Us?</h4>
-                                    <ul className="list-disc list-inside mt-4">
-                                        <li>Professionalism: Our team is committed to professionalism and excellence in everything we do, ensuring a smooth .</li>
-                                    </ul>
-                                    </div>
-                            </div>
+                            <EventList events={events}/>
                         </div>
                     </div>
 

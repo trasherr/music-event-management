@@ -9,7 +9,6 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.21",
-    "@types/react": "^18.2.60",
     "@types/react-dom": "^18.2.19",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
@@ -53,5 +52,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.0.10",
+    "@types/react-router-dom": "^5.3.3"
   }
 }
