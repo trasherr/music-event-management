@@ -2,15 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AboutPage: React.FC = () => {
-    const pageStyles = {
-        backgroundColor: '#121212', 
-        // backgroundColor: 'black', 
+    // const pageStyles = {
+    //     backgroundColor: '#121212', 
+    //     // backgroundColor: 'black', 
 
-        color: 'white', 
-        padding: '20px', 
-    };
+    //     color: 'white', 
+    //     padding: '20px', 
+    // };
     return (
-        <div style={pageStyles}>
+        // <div style={pageStyles}>
             <div className="container mt-5">
                 <div className="row align-items-center justify-content-center">
    
@@ -31,7 +31,7 @@ const AboutPage: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        // </div>
     );
 };
 

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Carousel from '../pages/Carousel.tsx';
 import AliceCarousel from 'react-alice-carousel';
+import { Link } from 'react-router-dom';
 
 const events = [
   {
+    id: '1',
     title: 'Summer Music Festival',
     eventTime: '2024-07-15',
     numberOfTickets: 500,
@@ -18,6 +20,7 @@ const events = [
     description: 'Join us for a day of live music, food, and fun in the sun!',
   },
   {
+    id: '2',
     title: 'Rock Concert Night',
     eventTime: '2024-08-20',
     numberOfTickets: 300,
@@ -70,6 +73,7 @@ const EventCard = ({ event }) => (
             Event Time: {(event.eventTime)}
           </p>
         </div>
+        <Link to={`/details/${event.id}`} className="btn btn-dark bg-gradient border-0 form-control">Details</Link>
 
         {/* <div className="pl-1">
           <p className="text-dark text-opacity-75 text-center">

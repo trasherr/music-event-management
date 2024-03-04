@@ -13,6 +13,7 @@ import NewEvent from './pages/NewEvent.tsx';
 import { reactRoutes } from './utils/routes.tsx';
 import AuthProvider from './context/AuthContext.tsx';
 import AdminProtectedRoute from './guards/AdminProtectedRoute.tsx';
+import EventDetailPage from './pages/EventDetailPage.tsx';
 
 const App: React.FC = () => {
 
@@ -26,6 +27,7 @@ const App: React.FC = () => {
           <Route path={reactRoutes.contact} element={<ContactPage />} />
           <Route path={reactRoutes.about} element={<AboutPage />} />
           <Route path={reactRoutes.services} element={<ServicesPage />} />
+          <Route path="/details/:eventId" element={<EventDetailPage />} />
         </Route>
         
       </Routes>
