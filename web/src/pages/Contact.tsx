@@ -1,12 +1,15 @@
 import React from 'react';
+import ContactUs from './ContactUs.tsx';
 
 const ContactPage: React.FC = () => {
     return (
+        
         <div className="container mt-5">
+            
             <h1>Contact Us</h1>
             <div className="row">
                 <div className="col-md-12">
-                    <p>Thank you for considering MEM for your music event needs! We're excited to hear from you and assist with your upcoming event. Whether you have questions, want to discuss potential collaborations, or are ready to start planning, we're here to help. Get in touch with us using the information below:</p>
+                    <p>Thank you for considering ConcertCrafter for your music event needs! We're excited to hear from you and assist with your upcoming event. Whether you have questions, want to discuss potential collaborations, or are ready to start planning, we're here to help. Get in touch with us using the information below:</p>
                     <h2>Contact Information:</h2>
                     <ul className="list-unstyled">
                         <li>
@@ -28,7 +31,10 @@ India
                     </ul>
                 </div>
             </div>
-            <footer className="fixed-bottom text-center">
+            <h2>Get in Touch</h2>
+            <ContactUs />
+
+            <footer className="mt-5 text-center">
                 <p>Connect with us:</p>
                 <ul className="list-unstyled d-flex justify-content-center">
                     <li className="me-3">
@@ -53,6 +59,7 @@ India
                         </li>
                 </ul>
             </footer>
+
         </div>
     );
 };

@@ -21,7 +21,17 @@ const AdminDashboard: React.FC = () => {
                                     <ul className="list-disc list-inside mt-4">
                                         <li>Professionalism: Our team is committed to professionalism and excellence in everything we do, ensuring a smooth .</li>
                                     </ul>
-                                    {/* <p className="py-6">At MEM, we are dedicated to exceeding expectations and creating moments that ins!</p> */}
+                                    </div>
+                            </div>
+
+                            <div className='row'>
+                                <div className='col-lg-5'>  <img  className='float-start img-fluid rounded'  src="https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495_640.jpg" alt=""  />  </div>
+                                <div className='col-lg-7'>
+                                    <p>Welcome to MEM, your premier destination for music event management services! At MEM, we are passionate about curating unforgettable .</p>
+                                    <h4 className="mt-6 border-b-4 border-danger w-52">Why Choose Us?</h4>
+                                    <ul className="list-disc list-inside mt-4">
+                                        <li>Professionalism: Our team is committed to professionalism and excellence in everything we do, ensuring a smooth .</li>
+                                    </ul>
                                     </div>
                             </div>
 
@@ -45,19 +55,6 @@ const AdminDashboard: React.FC = () => {
                                     <ul className="list-disc list-inside mt-4">
                                         <li>Professionalism: Our team is committed to professionalism and excellence in everything we do, ensuring a smooth .</li>
                                     </ul>
-                                    {/* <p className="py-6">At MEM, we are dedicated to exceeding expectations and creating moments that ins!</p> */}
-                                    </div>
-                            </div>
-
-                            <div className='row'>
-                                <div className='col-lg-5'>  <img  className='float-start img-fluid rounded'  src="https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495_640.jpg" alt=""  />  </div>
-                                <div className='col-lg-7'>
-                                    <p>Welcome to MEM, your premier destination for music event management services! At MEM, we are passionate about curating unforgettable .</p>
-                                    <h4 className="mt-6 border-b-4 border-danger w-52">Why Choose Us?</h4>
-                                    <ul className="list-disc list-inside mt-4">
-                                        <li>Professionalism: Our team is committed to professionalism and excellence in everything we do, ensuring a smooth .</li>
-                                    </ul>
-                                    {/* <p className="py-6">At MEM, we are dedicated to exceeding expectations and creating moments that ins!</p> */}
                                     </div>
                             </div>
                         </div>

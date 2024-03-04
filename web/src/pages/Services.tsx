@@ -6,25 +6,25 @@ const ServicesPage: React.FC = () => {
             id: 1,
             name: 'Event Planning',
             description: 'From concept development to execution, our experienced event planners handle every aspect of event management with precision and attention to detail.',
-            imageUrl: 'https://i.ibb.co/MhQQzBF/pexels-dziana-hasanbekava-7063765.jpg', // Replace with real image URLs
+            imageUrl: 'https://i.ibb.co/MhQQzBF/pexels-dziana-hasanbekava-7063765.jpg',
         },
         {
             id: 2,
             name: 'Artist Management',
             description: 'Our artist management services connect talented musicians and performers with opportunities, providing personalized representation and support.',
-            imageUrl: 'https://i.ibb.co/rtnLpb4/event-management.jpg', // Replace with real image URLs
+            imageUrl: 'https://i.ibb.co/rtnLpb4/event-management.jpg', 
         },
         {
             id: 3,
             name: 'Venue Coordination',
             description: 'Securing top-notch locations and managing all logistics, our team specializes in venue coordination, ensuring a seamless event experience.',
-            imageUrl: 'https://i.ibb.co/bBh9fTw/venue.jpg', // Replace with real image URLs
+            imageUrl: 'https://i.ibb.co/bBh9fTw/venue.jpg', 
         },
         {
             id: 4,
             name: 'Marketing and Promotion',
             description: 'Developing customized strategies to promote events, increase visibility, and drive ticket sales through various marketing channels.',
-            imageUrl: 'https://i.ibb.co/30HJMzP/pexels-oladimeji-ajegbile-3314294.jpg', // Replace with real image URLs
+            imageUrl: 'https://i.ibb.co/30HJMzP/pexels-oladimeji-ajegbile-3314294.jpg', 
         },
         {
             id: 5,

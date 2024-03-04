@@ -1,11 +1,14 @@
 import React from 'react';
+import Banner from './Banner.tsx';
+import EventList from '../components/EventList.tsx';
 
 const HomePage: React.FC = () => {
     return (
-        <div>
-            <h1>Home Page</h1>
-            <p>Welcome to our website!</p>
-        </div>
+
+        <>
+        <Banner/>
+        <EventList/>
+        </>
     );
 };
 
