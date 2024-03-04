@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import NewsLetterComponent from '../components/NewsLetterComponent.tsx';
+import NewsLetterComponent from '../components/NewsLetter.tsx';
 import { Outlet, Link } from "react-router-dom";
 
 const Layout: React.FC = () => {

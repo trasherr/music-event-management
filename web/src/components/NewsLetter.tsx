@@ -1,18 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface NewsLetterComponentProps {
     onClose: () => void;
   }
-const NewsLetterComponent: React.FC<NewsLetterComponentProps> = ({ onClose: onClose }) => {
+const NewsLetter: React.FC<NewsLetterComponentProps> = ({ onClose: onClose }) => {
     const handleClose = (event: React.MouseEvent<HTMLDivElement>) => {
         if (event && event.target === event.currentTarget) {
             onClose();
         }
       };
+
+    const handleSumbit = () => {
+        toast.success('Subscribed successfully!', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Bounce,
+            });
+       setTimeout(() => {
+        onClose();
+       }, 3000);
+    }
   return (
     <Model>
+    <ToastContainer />
+
     <div className='newsletter-container'>
         <div className='newsletter-content'>
             <div className='close-btn' onClick={handleClose}>X</div>
@@ -27,7 +47,7 @@ const NewsLetterComponent: React.FC<NewsLetterComponentProps> = ({ onClose: onCl
                     />
                 </div>
                 <div className="col-4">
-                    <button className='btn btn-primary rounded-pill' type='submit'>Submit</button>
+                    <button className='btn btn-primary rounded-pill' onClick={handleSumbit} type='submit'>Submit</button>
                 </div>
             </div>
             
@@ -37,7 +57,7 @@ const NewsLetterComponent: React.FC<NewsLetterComponentProps> = ({ onClose: onCl
   );
 }
 
-export default NewsLetterComponent;
+export default NewsLetter;
 
 const Model = styled.div`
 .newsletter-container{
