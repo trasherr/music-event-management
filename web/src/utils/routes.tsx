@@ -16,6 +16,6 @@ export const apiRoutes = {
     eventsGet: '/home/events',
     eventPost: '/admin/event',
     eventImgPost: (eventId: number | string) => '/admin/event/images/FILES/'+eventId,
-    eventDelete: '/admin/event',
+    eventDelete: (eventId: number | string) => '/admin/event/'+eventId,
     eventPut: '/admin/event',
 }

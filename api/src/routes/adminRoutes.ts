@@ -2,7 +2,7 @@ import express  from "express";
 import multer from "multer";
 import { STORAGE_PATH, VerifyMedia, VerifyUser } from "./upload/verifyUpload";
 import path from "path";
-import { eventImgPost, eventPost } from "../controllers/adminController";
+import { eventImgPost, eventPost, eventsDelete } from "../controllers/adminController";
 
 const userFileStorage = multer.diskStorage({
     
@@ -64,6 +64,7 @@ const adminRouter = express.Router();
 
 
 adminRouter.post('/event',eventPost);
+adminRouter.delete('/event/:eventId',eventsDelete);
 adminRouter.post('/event/images/:location/:eventId',userFileUploadMulter.array('files'), eventImgPost);
 
 

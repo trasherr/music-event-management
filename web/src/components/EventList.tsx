@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import AliceCarousel from 'react-alice-carousel';
-import { Link } from 'react-router-dom';
-import { API_ENDPOINT_STRIP } from '../utils/constants.tsx';
+import { Link, useLocation } from 'react-router-dom';
+import { API_ENDPOINT, API_ENDPOINT_STRIP } from '../utils/constants.tsx';
+import { apiRoutes, reactRoutes } from '../utils/routes.tsx';
+import axios from 'axios';
 
 export interface IEvent {
   id: number;
@@ -18,8 +20,7 @@ export interface IEvent {
   images: string[]
 }
 
-const EventCard = ({ event }: { event: IEvent }) => (
-  
+const EventCard = ({ event, location,removeEvent }: { event: IEvent, location: string, removeEvent: (eventId: number) => Promise<void> }) => (
   <div className="col-lg-4 pb-1">
     <div className="card border-0 p-3 shadow border-top border-5 rounded">
       
@@ -33,7 +34,7 @@ const EventCard = ({ event }: { event: IEvent }) => (
           disableButtonsControls
           items={event.images.map((image:string, index:number) => (
             <div key={index} className="text-center mb-4">
-              <img src={API_ENDPOINT_STRIP+'/files/'+image} alt={`Event Image ${index + 1}`} style={{ maxWidth: "95%", maxHeight: "220px", cursor:"none",borderRadius: "10px" }} />
+              <img src={API_ENDPOINT_STRIP+'/files/'+image} alt={event.title} style={{ maxWidth: "95%", maxHeight: "220px", cursor:"none",borderRadius: "10px" }} />
             </div>
           ))}
         />
@@ -54,7 +55,8 @@ const EventCard = ({ event }: { event: IEvent }) => (
             Event Time:{ new Date(event.datetime)?.toLocaleTimeString()}
           </p>
         </div>
-        <Link to={`/details/${event.id}`} className="btn btn-dark bg-gradient border-0 form-control">Details</Link>
+        {  location === reactRoutes.admin ? <button type="button" onClick={() => removeEvent(event.id)} className="btn btn-danger bg-gradient border-0 form-control">Delete</button> : <Link to={`/details/${event.id}`} className="btn btn-dark bg-gradient border-0 form-control">Details</Link>}
+        
 
         {/* <div className="pl-1">
           <p className="text-dark text-opacity-75 text-center">
@@ -71,14 +73,33 @@ const EventCard = ({ event }: { event: IEvent }) => (
   </div>
 );
 
-const EventsPage = (props: { events: IEvent[] }) => (
+const EventsPage = (props: { events: IEvent[] }) => {
+
+  const location = useLocation();
+
+  const removeEvent = async (eventId: number) => {
+    let res = await axios.delete(`${API_ENDPOINT}${apiRoutes.eventDelete(eventId)}`,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+      },
+    });
+    console.log(res);
+    props.events.splice(props.events.findIndex((event: IEvent) => event.id === eventId), 1);
+    window.location.reload();
+  }
+
+  return (
   <div className="container mt-5">
     <div className="row">
       {props.events.map((event: IEvent, index: number) => (
-        <EventCard key={index} event={event} />
+        <EventCard key={index} event={event} location={location.pathname} removeEvent={removeEvent} />
       ))}
     </div>
   </div>
-);
+  ); 
+}
+
 
 export default EventsPage;

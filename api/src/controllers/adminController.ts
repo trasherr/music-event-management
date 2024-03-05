@@ -31,6 +31,18 @@ export const eventPost = async (req:Request, res: Response) => {
 }
 
 
+export const eventsDelete = async (req:Request, res: Response) => {
+
+    let entity: IEventEntity = await db.getData("/eventEntity");
+    
+    entity.events = entity.events.filter(event => event.id != req.params.eventId as unknown as number);
+    await db.push("/eventEntity",entity);
+
+    res.send();
+
+}
+
+
 export const eventImgPost = async (req:Request, res: Response) => {
 
     let entity: IEventEntity = await db.getData("/eventEntity");
