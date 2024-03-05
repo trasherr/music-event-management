@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import NewsLetterComponent from '../components/NewsLetter.tsx';
 import { Outlet, Link } from "react-router-dom";
+import { reactRoutes } from '../utils/routes.tsx';
 
 const Layout: React.FC = () => {
 
@@ -51,6 +52,7 @@ const Layout: React.FC = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/about">About</Link>
               </li>
+
               <li className="nav-item">
               <button className='nav-link' onClick={handleClick}>Newsletter</button>
                 {isOpen && (
@@ -58,6 +60,9 @@ const Layout: React.FC = () => {
                     
                     </NewsLetterComponent>
                 )}
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={reactRoutes.auth}>Admin Login</Link>
               </li>
             </ul>
           </div>

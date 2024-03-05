@@ -9,15 +9,17 @@ export const AuthContext = createContext({} as AuthContextValue);
 
 
 const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('token') ? true : false);
 
   // Replace this with your actual authentication logic (e.g., API call, token storage)
   useEffect(() => {
     const token = localStorage.getItem('token');
+    
     if (token) {
       setIsAuthenticated(true);
     }
-  }, []);
+
+  },[]);
 
   const login = (token:string) => {
     localStorage.setItem('token', token);
@@ -27,7 +29,6 @@ const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setIsAuthenticated(false);
-    
     localStorage.removeItem('token');
   };
 

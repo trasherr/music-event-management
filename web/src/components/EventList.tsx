@@ -20,7 +20,7 @@ export interface IEvent {
 
 const EventCard = ({ event }: { event: IEvent }) => (
   
-  <div className="col-lg-3 col-sm-6">
+  <div className="col-lg-4 pb-1">
     <div className="card border-0 p-3 shadow border-top border-5 rounded">
       
     <div className="carousel-container">
@@ -33,7 +33,7 @@ const EventCard = ({ event }: { event: IEvent }) => (
           disableButtonsControls
           items={event.images.map((image:string, index:number) => (
             <div key={index} className="text-center mb-4">
-              <img src={API_ENDPOINT_STRIP+'/files/'+image} alt={`Event Image ${index + 1}`} style={{ width: "220px", height: "220px", cursor:"none" }} />
+              <img src={API_ENDPOINT_STRIP+'/files/'+image} alt={`Event Image ${index + 1}`} style={{ maxWidth: "95%", maxHeight: "220px", cursor:"none",borderRadius: "10px" }} />
             </div>
           ))}
         />
@@ -44,12 +44,12 @@ const EventCard = ({ event }: { event: IEvent }) => (
             {event.title}
           </p>
         </div>
-        <div className="pl-1">
+        <div className="pl-0">
           <p className="text-dark text-opacity-75 text-center">
             <span>&#8377;{(event.price)}</span>
           </p>
         </div>
-        <div className="pl-1">
+        <div className="pl-0">
           <p className="text-dark text-opacity-75 text-center">
             Event Time:{ new Date(event.datetime)?.toLocaleTimeString()}
           </p>

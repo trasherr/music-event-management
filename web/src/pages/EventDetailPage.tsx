@@ -101,7 +101,7 @@ const EventDetailPage = () => {
           disableButtonsControls
           items={event.images.map((image:string, index:number) => (
             <div key={index} className="text-center mb-4">
-              <img src={API_ENDPOINT_STRIP+'/files/'+image} alt={`Event Image ${index + 1}`} style={{ width: "220px", height: "220px", cursor:"none" }} />
+              <img src={API_ENDPOINT_STRIP+'/files/'+image} alt={`Event Image ${index + 1}`} style={{ width: "220px", height: "220px", cursor:"none", borderRadius: "10px" }} />
             </div>
           ))}
         />
