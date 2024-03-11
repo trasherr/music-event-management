@@ -52,7 +52,7 @@ const EventCard = ({ event, location,removeEvent }: { event: IEvent, location: s
         </div>
         <div className="pl-0">
           <p className="text-dark text-opacity-75 text-center">
-            Event Time:{ new Date(event.datetime)?.toLocaleTimeString()}
+            Event Time:{ new Date(event.datetime)?.toLocaleString()}
           </p>
         </div>
         {  location === reactRoutes.admin ? <button type="button" onClick={() => removeEvent(event.id)} className="btn btn-danger bg-gradient border-0 form-control">Delete</button> : <Link to={`/details/${event.id}`} className="btn btn-dark bg-gradient border-0 form-control">Details</Link>}

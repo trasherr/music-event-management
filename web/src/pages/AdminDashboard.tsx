@@ -49,7 +49,7 @@ const AdminDashboard: React.FC = () => {
                                 <li>Personalized Service: We take the time to understand your needs and preferences, delivering customized solutions tailored to your specific requirements.</li>
                                 <li>Professionalism: Our team is committed to professionalism and excellence in everything we do, ensuring a smooth and successful event every time.</li>
                             </ul>
-                            <p className="py-6">At MEM, we are dedicated to exceeding expectations and creating moments that inspire and entertain. Contact us today to start planning your next unforgettable music event!</p>
+                            <p className="py-6">At Concert Crafter, we are dedicated to exceeding expectations and creating moments that inspire and entertain. Contact us today to start planning your next unforgettable music event!</p>
                         </div>
                     </div>
                 </div>

@@ -7,8 +7,7 @@ const ContactPage: React.FC = () => {
         <div className="container mt-5">
             
             <h1>Contact Us</h1>
-            <div className="row">
-                <div className="col-md-12">
+                <div className="col-lg-12">
                     <p>Thank you for considering ConcertCrafter for your music event needs! We're excited to hear from you and assist with your upcoming event. Whether you have questions, want to discuss potential collaborations, or are ready to start planning, we're here to help. Get in touch with us using the information below:</p>
                     <h2>Contact Information:</h2>
                     <ul className="list-unstyled">
@@ -30,7 +29,6 @@ India
                         <li>Saturday-Sunday: Closed</li>
                     </ul>
                 </div>
-            </div>
             <h2>Get in Touch</h2>
             <ContactUs />
 

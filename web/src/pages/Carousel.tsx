@@ -4,7 +4,6 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import React from 'react';
 
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const events = [
     {
@@ -41,7 +40,6 @@ const Carousel = () => {
       },
   ];
 
-  const handleOnSlideChange = (e) => setCurrentIndex(e.item);
 
   return (
     <div className="carousel-container">
@@ -58,10 +56,12 @@ const Carousel = () => {
             items: 2,
           },
           512: {
+            items: 3,
+          },
+          1024: {
             items: 4,
           },
         }}
-        // responsive={responsive}
         items={events.map((event) => (
           <div key={event.id} className="text-white text-center mb-4">
             <img src={event.imageUrl} alt={event.name} 
@@ -72,17 +72,8 @@ const Carousel = () => {
             {/* <p>{event.description}</p> */}
           </div>
         ))}
-        onSlideChanged={handleOnSlideChange}
       />
-      <div className="carousel-dots">
-        {events.map((event, index) => (
-          <span
-            key={index}
-            className={currentIndex === index ? "dot active" : "dot"}
-            onClick={() => setCurrentIndex(index)}
-          />
-        ))}
-      </div>
+     
     </div>
   );
 };

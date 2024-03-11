@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
 const ContactUs = () => {
-  const form = useRef(null);
+  const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -14,6 +14,7 @@ const ContactUs = () => {
         .then(
           () => {
             console.log('SUCCESS!');
+            form.current?.reset();
           },
           (error) => {
             console.log('FAILED...', error.text);
@@ -24,7 +25,7 @@ const ContactUs = () => {
 
   return (
     <div className="row justify-content-center">
-    <div className="col-md-6 "> 
+    <div className="col-lg-6"> 
     <form ref={form} onSubmit={sendEmail}>
       <div className="mb-3">
         <label htmlFor="from_name" className="form-label">Name</label>
